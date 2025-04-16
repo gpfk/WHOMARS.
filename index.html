@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WHOMARS - Cripto Nonsense Interplanetária</title>
+  <title>WHOMARS - Cripto Nonsense</title>
   <style>
     body {
       margin: 0;
@@ -13,8 +13,38 @@
       text-align: center;
     }
 
-    h1, h2 {
-      color: #00e6b8;
+    .banner-wrapper {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      max-width: 800px;
+      margin-top: 20px;
+    }
+
+    .banner {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00e6b8;
+    }
+
+    .buy-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #00b894;
+      color: white;
+      padding: 15px 30px;
+      font-size: 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      box-shadow: 0 0 10px #00b894;
+      transition: 0.3s ease;
+    }
+
+    .buy-button:hover {
+      background-color: #00e6b8;
+      box-shadow: 0 0 15px #00e6b8;
     }
 
     .section {
@@ -23,31 +53,7 @@
       margin: auto;
     }
 
-    .banner {
-      width: 100%;
-      max-width: 800px;
-      margin: 30px auto 10px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #00e6b8;
-    }
-
-    .buy-button {
-      display: inline-block;
-      background-color: #00b894;
-      color: white;
-      padding: 15px 30px;
-      font-size: 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      box-shadow: 0 0 10px #00b894;
-      margin-top: 20px;
-      transition: 0.3s ease;
-    }
-
-    .buy-button:hover {
-      background-color: #00e6b8;
-      box-shadow: 0 0 15px #00e6b8;
-    }
+    h1, h2 { color: #00e6b8; }
 
     .footer {
       background: #000;
@@ -66,20 +72,13 @@
 </head>
 <body>
 
-  <!-- Banner 1 -->
-  <img class="banner" src="https://i.ibb.co/XkL8FnTT/file-000000008e3c62308a2df87cd87017ac-conversation-id-67fdc268-aafc-8009-af43-3c233ea751e6-message-i.png" alt="Banner WHOMARS 1">
-
-  <!-- Banner 2 -->
-  <img class="banner" src="https://i.ibb.co/nqcLn2Lm/file-00000000653c61f699992c277d083e7b-conversation-id-67fe96c4-ce40-8009-9623-2f8c1059ee2d-message-i.png" alt="Banner WHOMARS 2">
-
-  <!-- Botão -->
-  <div class="section">
-    <a href="https://pancakeswap.finance/swap?outputCurrency=0x0951BD6B6310175EdC9508F3A5A24Ee5" target="_blank" class="buy-button">
-      COMPRAR WHM AGORA
-    </a>
+  <!-- Imagem com botão sobre ela -->
+  <div class="banner-wrapper">
+    <img class="banner" src="https://i.ibb.co/XkL8FnTT/file-000000008e3c62308a2df87cd87017ac-conversation-id-67fdc268-aafc-8009-af43-3c233ea751e6-message-i.png" alt="Banner WHOMARS 1">
+    <a href="https://pancakeswap.finance/swap?outputCurrency=0x0951BD6B6310175EdC9508F3A5A24Ee5" target="_blank" class="buy-button">COMPRAR WHM AGORA</a>
   </div>
 
-  <!-- Sobre -->
+  <!-- Seção explicativa -->
   <div class="section">
     <h1>O que é WHOMARS?</h1>
     <p>Uma cripto nonsense, meme e interplanetária. WHOMARS é uma criptomoeda que une Brasil, China, Rússia, Japão e Europa em uma corrida maluca rumo a Marte com foguetes memes!</p>
