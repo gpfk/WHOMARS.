@@ -12,36 +12,40 @@
       font-family: Arial, sans-serif;
       text-align: center;
     }
-    .banner {
+
+    .image-container {
+      position: relative;
+      display: inline-block;
       width: 100%;
       max-width: 800px;
-      margin: 20px auto;
-      display: block;
+      margin: 30px auto;
+    }
+
+    .image-container img {
+      width: 100%;
       border-radius: 12px;
     }
-    .button {
+
+    .buy-button {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
       background-color: #00b894;
       color: white;
       padding: 15px 30px;
-      border: none;
       font-size: 20px;
       border-radius: 10px;
-      cursor: pointer;
-      margin-top: 30px;
+      text-decoration: none;
       box-shadow: 0 0 10px #00b894;
-      transition: all 0.3s ease;
+      transition: 0.3s ease;
     }
-    .button:hover {
+
+    .buy-button:hover {
       background-color: #00e6b8;
       box-shadow: 0 0 15px #00e6b8;
     }
-    .info {
-      background: #222;
-      border-radius: 10px;
-      padding: 30px 20px;
-      margin: 20px auto;
-      max-width: 800px;
-    }
+
     .footer {
       margin-top: 40px;
       font-size: 14px;
@@ -51,35 +55,13 @@
 </head>
 <body>
 
-  <!-- Banner -->
-  <img class="banner" src="https://i.ibb.co/nMsPSRY/whomars-rocket-launch.png" alt="WHOMARS Rocket Banner">
-
-  <div class="info">
-    <h1>WHOMARS – A Cripto Nonsense Interplanetária</h1>
-
-    <h2>Contrato:</h2>
-    <p>0x0951BD6B6310175EdC9508F3A5A24Ee5</p>
-
-    <h3>Fornecimento total:</h3>
-    <p>100.000.000.000 WHM</p>
-
-    <h3>Países na disputa:</h3>
-    <p>Brasil, China, Rússia, Japão, EUA</p>
-
-    <h3>Descrição:</h3>
-    <p>
-      WHOMARS é a cripto que não quer brigar, só quer chegar primeiro a Marte com memes, paródias e geopolítica nonsense.
-      Porque levar a vida a sério... não leva a Júpiter!
-    </p>
-
-    <!-- Botão funcional -->
-    <a href="https://pancakeswap.finance/swap?outputCurrency=0x0951BD6B6310175EdC9508F3A5A24Ee5" target="_blank">
-      <button class="button">COMPRAR WHM AGORA</button>
+  <!-- Imagem com botão sobreposto -->
+  <div class="image-container">
+    <img src="https://i.ibb.co/yWgdT60/whomars-banner-meme.png" alt="WHOMARS Banner">
+    <a href="https://pancakeswap.finance/swap?outputCurrency=0x0951BD6B6310175EdC9508F3A5A24Ee5" target="_blank" class="buy-button">
+      COMPRAR WHM AGORA
     </a>
   </div>
-
-  <!-- Imagem extra -->
-  <img class="banner" src="https://i.ibb.co/ZGrP2CY/quem-chega-primeiro.png" alt="Quem chega primeiro à Marte?">
 
   <div class="footer">
     © 2025 WHOMARS — To the memeverse!
