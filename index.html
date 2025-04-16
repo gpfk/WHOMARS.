@@ -2,74 +2,60 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WHOMARS (WHM)</title>
   <style>
     body {
       background-color: #111;
-      color: white;
+      color: #fff;
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
       text-align: center;
+      padding: 20px;
     }
-    header {
+    .banner {
+      max-width: 100%;
+      margin: 20px auto;
+    }
+    .container {
       background-color: #000;
-      padding: 2rem;
-    }
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0;
-    }
-    .imagem {
-      margin: 2rem auto;
-      max-width: 90%;
-    }
-    img {
-      width: 100%;
-      max-width: 600px;
+      padding: 20px;
       border-radius: 10px;
     }
-    .info {
-      padding: 1rem;
-    }
-    .botao {
-      display: inline-block;
-      background-color: #e53935;
+    .btn {
+      background-color: #e74c3c;
       color: white;
-      padding: 1rem 2rem;
-      margin: 2rem 0;
+      padding: 15px 30px;
       text-decoration: none;
-      font-size: 1.2rem;
-      border-radius: 10px;
+      border-radius: 5px;
+      font-size: 18px;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    .btn:hover {
+      background-color: #c0392b;
+    }
+    .destaque {
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <header>
+  <div class="container">
     <h1>WHOMARS (WHM)</h1>
     <p>A cripto da corrida espacial a Júpiter!</p>
-  </header>
 
-  <div class="imagem">
-    <img src="https://i.imgur.com/6Mm0a1L.png" alt="Corrida espacial antiamericana"/>
-  </div>
+    <!-- Imagens -->
+    <img class="banner" src="https://i.imgur.com/gh3Pmb8.png" alt="Banner WHOMARS 1" />
+    <img class="banner" src="https://i.imgur.com/BKq4O3I.png" alt="Banner WHOMARS 2" />
 
-  <div class="imagem">
-    <img src="https://i.imgur.com/G07fUIz.png" alt="Quem chega primeiro a Marte"/>
-  </div>
+    <!-- Informações -->
+    <p><span class="destaque">Contrato:</span><br>0x0951BD6B6310175EdC9508F3A5A24Ee55dc2c609</p>
+    <p><span class="destaque">Fornecimento total:</span> 100.000.000.000 WHM</p>
+    <p><span class="destaque">Países na disputa:</span> Brasil, China, Rússia, Japão, EUA!</p>
+    <p><span class="destaque">Descrição:</span> Uma cripto nonsense, meme, e interestelar. Porque levar a vida a sério não leva a Júpiter!</p>
 
-  <div class="info">
-    <p><strong>Contrato:</strong> 0x0951BD6B6310175EdC9508F3A5A24Ee55dc2c609</p>
-    <p><strong>Fornecimento total:</strong> 100.000.000.000 WHM</p>
-    <p><strong>Países na disputa:</strong> Brasil, China, Rússia, Japão, EUA!</p>
-    <p><strong>Descrição:</strong> Uma cripto nonsense, meme, e interestelar. Porque levar a vida a sério não leva a Júpiter!</p>
-
-    <a class="botao" href="#">Comprar WHM</a>
+    <!-- Botão de compra -->
+    <a class="btn" href="https://pancakeswap.finance/swap?outputCurrency=0x0951BD6B6310175EdC9508F3A5A24Ee55dc2c609" target="_blank">Comprar WHM</a>
   </div>
 </body>
 </html>
