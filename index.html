@@ -12,22 +12,26 @@
       font-family: Arial, sans-serif;
       text-align: center;
     }
-    .image-container {
-      position: relative;
-      display: inline-block;
+
+    h1, h2 {
+      color: #00e6b8;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .banner {
       width: 100%;
       max-width: 800px;
-      margin: 30px auto;
-    }
-    .image-container img {
-      width: 100%;
+      margin: 30px auto 0;
       border-radius: 12px;
     }
+
     .buy-button {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
+      display: inline-block;
       background-color: #00b894;
       color: white;
       padding: 15px 30px;
@@ -35,28 +39,97 @@
       border-radius: 10px;
       text-decoration: none;
       box-shadow: 0 0 10px #00b894;
+      margin-top: 20px;
       transition: 0.3s ease;
     }
+
     .buy-button:hover {
       background-color: #00e6b8;
       box-shadow: 0 0 15px #00e6b8;
     }
+
+    .flags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .flags img {
+      width: 100px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 8px #00b894;
+    }
+
+    .social-links {
+      margin-top: 30px;
+    }
+
+    .social-links a {
+      margin: 0 10px;
+      color: #00e6b8;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
     .footer {
-      margin-top: 40px;
+      background: #000;
+      padding: 30px 10px;
       font-size: 14px;
-      color: #777;
+      color: #aaa;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
-  <div class="image-container">
-    <img src="https://i.ibb.co/yWgdT60/whomars-banner-meme.png" alt="WHOMARS Banner">
+
+  <!-- Banner e botão -->
+  <img class="banner" src="https://i.ibb.co/yWgdT60/whomars-banner-meme.png" alt="WHOMARS Banner">
+  <div class="section">
     <a href="https://pancakeswap.finance/swap?outputCurrency=0x0951BD6B6310175EdC9508F3A5A24Ee5" target="_blank" class="buy-button">
       COMPRAR WHM AGORA
     </a>
   </div>
-  <div class="footer">
-    © 2025 WHOMARS — To the memeverse!
+
+  <!-- Sobre -->
+  <div class="section">
+    <h1>O que é WHOMARS?</h1>
+    <p>Uma cripto com um propósito: levar memes ao espaço. WHOMARS é a criptomoeda interplanetária que une Brasil, China, Rússia, Japão e Europa em uma disputa nonsense para ver quem chega primeiro a Marte com um foguete meme!</p>
   </div>
+
+  <!-- Tokenomics -->
+  <div class="section">
+    <h2>Tokenomics</h2>
+    <p><strong>Nome:</strong> WHOMARS (WHM)</p>
+    <p><strong>Contrato:</strong> 0x0951BD6B6310175EdC9508F3A5A24Ee5</p>
+    <p><strong>Fornecimento total:</strong> 100.000.000.000 WHM</p>
+    <p><strong>Rede:</strong> BNB Smart Chain</p>
+  </div>
+
+  <!-- Corrida espacial -->
+  <div class="section">
+    <h2>Corrida Espacial dos Memes</h2>
+    <p>Os foguetes decolaram. Quem vai dominar Marte com um GIF?</p>
+    <div class="flags">
+      <img src="https://flagcdn.com/w320/ru.png" alt="Rússia">
+      <img src="https://flagcdn.com/w320/cn.png" alt="China">
+      <img src="https://flagcdn.com/w320/jp.png" alt="Japão">
+      <img src="https://flagcdn.com/w320/eu.png" alt="Europa">
+      <img src="https://flagcdn.com/w320/br.png" alt="Brasil">
+    </div>
+  </div>
+
+  <!-- Rodapé com redes -->
+  <div class="footer">
+    <div class="social-links">
+      <a href="https://facebook.com/whomars" target="_blank">Facebook</a> |
+      <a href="https://instagram.com/whomars_token" target="_blank">Instagram</a> |
+      <a href="https://kwai.com/@whomars" target="_blank">Kwai</a>
+    </div>
+    <p>© 2025 WHOMARS — Porque levar a vida a sério não leva a Júpiter.</p>
+  </div>
+
 </body>
 </html>
