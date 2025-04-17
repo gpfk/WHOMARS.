@@ -15,10 +15,21 @@
       color: #fff;
       font-family: Arial, sans-serif;
       text-align: center;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
     img {
       max-width: 100%;
       height: auto;
+      pointer-events: none;
+      -webkit-user-drag: none;
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+    img:hover {
+      transform: scale(1.03);
     }
     h1, h2 {
       color: #00e6b8;
@@ -78,100 +89,99 @@
     }
   </style>
 </head>
-<body>
+<body oncontextmenu="return false">
 
-  <!-- Banner 1 -->
-  <img class="banner" src="https://i.ibb.co/XkL8FnTT/file-000000008e3c62308a2df87cd87017ac-conversation-id-67fdc268-aafc-8009-af43-3c233ea751e6-message-i.png" alt="Banner WHOMARS 1">
+<script>
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "PrintScreen") {
+      navigator.clipboard.writeText("Protegido por WHOMARS!");
+      alert("Captura de tela bloqueada!");
+      e.preventDefault();
+    }
+  });
+</script>
 
-  <!-- Banner 2 -->
-  <img class="banner" src="https://i.ibb.co/nqcLn2Lm/file-00000000653c61f699992c277d083e7b-conversation-id-67fe96c4-ce40-8009-9623-2f8c1059ee2d-message-i.png" alt="Banner WHOMARS 2">
+<img class="banner" src="https://i.ibb.co/XkL8FnTT/file-000000008e3c62308a2df87cd87017ac-conversation-id-67fdc268-aafc-8009-af43-3c233ea751e6-message-i.png" alt="Banner WHOMARS 1">
+<img class="banner" src="https://i.ibb.co/nqcLn2Lm/file-00000000653c61f699992c277d083e7b-conversation-id-67fe96c4-ce40-8009-9623-2f8c1059ee2d-message-i.png" alt="Banner WHOMARS 2">
 
-  <!-- Botão -->
-  <div class="section">
-    <a href="https://pancakeswap.finance/swap?outputCurrency=0x0951BD6B6310175EdC9508F3A5A24Ee5" target="_blank" class="buy-button">
-      COMPRAR WHM AGORA
-    </a>
-    <p id="contador" style="font-size: 18px; color: #00e6b8; margin-top: 10px;"></p>
+<div class="section">
+  <a href="https://pancakeswap.finance/swap?outputCurrency=0x0951BD6B6310175EdC9508F3A5A24Ee5" target="_blank" class="buy-button">
+    COMPRAR WHM AGORA
+  </a>
+  <p id="contador" style="font-size: 18px; color: #00e6b8; margin-top: 10px;"></p>
+</div>
+
+<script>
+  const countdownDate = new Date("2025-04-30T23:59:59").getTime();
+  const timer = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+    if (distance < 0) {
+      clearInterval(timer);
+      document.getElementById("contador").innerText = "A pré-venda terminou!";
+      return;
+    }
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    document.getElementById("contador").innerText = `Faltam ${days}d ${hours}h ${minutes}min para o fim da pré-venda!`;
+  }, 1000);
+</script>
+
+<div class="section">
+  <h1>O que é WHOMARS?</h1>
+  <p>WHOMARS é o cripto meme mundial que une (e zoa) as maiores potências em uma corrida interplanetária rumo a Marte. Brasil, China, Rússia, Japão, Europa e muito mais — todos disputando com foguetes e zoeira quem chega primeiro no planeta vermelho.</p>
+</div>
+
+<div class="section why-invest">
+  <h2>Por que investir em WHOMARS?</h2>
+  <ul>
+    <li>✔ Meme poderoso com causa interplanetária</li>
+    <li>✔ Comunidade global de memeiros unida</li>
+    <li>✔ Lançamento seguro via Pinksale</li>
+    <li>✔ Participação da galera do Brasil, China, Rússia e Japão</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Foguetes Intergalácticos</h2>
+  <div style="overflow-x: auto; white-space: nowrap;">
+    <img src="https://i.ibb.co/Vp9T5BVK/file-00000000afac6230ab9418d79de557cd-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
+    <img src="https://i.ibb.co/RpmYFWNR/file-00000000f90061f6841916e2ec2c8796-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
+    <img src="https://i.ibb.co/sxQLvvh/file-00000000864862308575b429ec9fc37f-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
+    <img src="https://i.ibb.co/603F3g4w/file-000000002cd861f8b51addb8574a3fc7-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
+    <img src="https://i.ibb.co/7N8ZVQRd/file-00000000bfe461f8bf1406265480e8e6-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
+    <img src="https://i.ibb.co/3yzvhWkX/file-00000000d4a861f89fc2abab45989264-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
   </div>
+</div>
 
-  <!-- Contador -->
-  <script>
-    const countdownDate = new Date("2025-04-30T23:59:59").getTime();
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = countdownDate - now;
-      if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById("contador").innerText = "A pré-venda terminou!";
-        return;
-      }
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      document.getElementById("contador").innerText = `Faltam ${days}d ${hours}h ${minutes}min para o fim da pré-venda!`;
-    }, 1000);
-  </script>
+<div class="section">
+  <h2>Tokenomics</h2>
+  <p><strong>Nome:</strong> WHOMARS (WHM)</p>
+  <p><strong>Contrato:</strong> 0x0951BD6B6310175EdC9508F3A5A24Ee5</p>
+  <p><strong>Fornecimento total:</strong> 100.000.000.000 WHM</p>
+  <p><strong>Rede:</strong> BNB Smart Chain</p>
+</div>
 
-  <!-- Sobre -->
-  <div class="section">
-    <h1>O que é WHOMARS?</h1>
-    <p>WHOMARS é o cripto meme mundial que une (e zoa) as maiores potências em uma corrida interplanetária rumo a Marte. Brasil, China, Rússia, Japão, Europa e muito mais — todos disputando com foguetes e zoeira quem chega primeiro no planeta vermelho.</p>
+<div class="section roadmap">
+  <h2>Roadmap Interplanetário</h2>
+  <ul>
+    <li>✔ Pré-venda inicial</li>
+    <li>✔ Listagem PancakeSwap</li>
+    <li>🚀 Lançamento da coleção NFT WHOMARS</li>
+    <li>🛸 Expansão para exchanges e staking</li>
+    <li>🌕 MemeSpace Game (fase zoeira final)</li>
+  </ul>
+</div>
+
+<div class="footer">
+  <div class="social-links">
+    <a href="https://facebook.com/whomars" target="_blank">Facebook</a> |
+    <a href="https://instagram.com/whomars_token" target="_blank">Instagram</a> |
+    <a href="https://kwai.com/@whomars" target="_blank">Kwai</a>
   </div>
-
-  <!-- Por que investir -->
-  <div class="section why-invest">
-    <h2>Por que investir em WHOMARS?</h2>
-    <ul>
-      <li>✔ Meme poderoso com causa interplanetária</li>
-      <li>✔ Comunidade global de memeiros unida</li>
-      <li>✔ Lançamento seguro via Pinksale</li>
-      <li>✔ Participação da galera do Brasil, China, Rússia e Japão</li>
-    </ul>
-  </div>
-
-  <!-- Galeria de Foguetes -->
-  <div class="section">
-    <h2>Foguetes Intergalácticos</h2>
-    <div style="overflow-x: auto; white-space: nowrap;">
-      <img src="https://i.ibb.co/Vp9T5BVK/file-00000000afac6230ab9418d79de557cd-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
-      <img src="https://i.ibb.co/RpmYFWNR/file-00000000f90061f6841916e2ec2c8796-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
-      <img src="https://i.ibb.co/sxQLvvh/file-00000000864862308575b429ec9fc37f-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
-      <img src="https://i.ibb.co/603F3g4w/file-000000002cd861f8b51addb8574a3fc7-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
-      <img src="https://i.ibb.co/7N8ZVQRd/file-00000000bfe461f8bf1406265480e8e6-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
-      <img src="https://i.ibb.co/3yzvhWkX/file-00000000d4a861f89fc2abab45989264-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
-    </div>
-  </div>
-
-  <!-- Tokenomics -->
-  <div class="section">
-    <h2>Tokenomics</h2>
-    <p><strong>Nome:</strong> WHOMARS (WHM)</p>
-    <p><strong>Contrato:</strong> 0x0951BD6B6310175EdC9508F3A5A24Ee5</p>
-    <p><strong>Fornecimento total:</strong> 100.000.000.000 WHM</p>
-    <p><strong>Rede:</strong> BNB Smart Chain</p>
-  </div>
-
-  <!-- Roadmap -->
-  <div class="section roadmap">
-    <h2>Roadmap Interplanetário</h2>
-    <ul>
-      <li>✔ Pré-venda inicial</li>
-      <li>✔ Listagem PancakeSwap</li>
-      <li>🚀 Lançamento da coleção NFT WHOMARS</li>
-      <li>🛸 Expansão para exchanges e staking</li>
-      <li>🌕 MemeSpace Game (fase zoeira final)</li>
-    </ul>
-  </div>
-
-  <!-- Rodapé -->
-  <div class="footer">
-    <div class="social-links">
-      <a href="https://facebook.com/whomars" target="_blank">Facebook</a> |
-      <a href="https://instagram.com/whomars_token" target="_blank">Instagram</a> |
-      <a href="https://kwai.com/@whomars" target="_blank">Kwai</a>
-    </div>
-    <p>© 2025 WHOMARS — Porque levar a vida a sério não leva a Júpiter.</p>
-  </div>
+  <p>© 2025 WHOMARS — Porque levar a vida a sério não leva a Júpiter.</p>
+</div>
 
 </body>
 </html>
