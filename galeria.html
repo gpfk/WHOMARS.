@@ -1,0 +1,121 @@
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WHOMARS - Galeria Protegida</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    h1, h2 {
+      color: #00e6b8;
+    }
+    .section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .footer {
+      background: #000;
+      padding: 30px 10px;
+      font-size: 14px;
+      color: #aaa;
+      margin-top: 50px;
+    }
+    .social-links a {
+      color: #00e6b8;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    .galeria-scroll {
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .galeria-scroll img {
+      display: inline-block;
+      width: 200px;
+      margin: 10px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #00e6b8;
+      pointer-events: none;
+      user-select: none;
+    }
+    .btn {
+      background: #00e6b8;
+      color: #111;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    #galeria {
+      display: none;
+    }
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body oncontextmenu="return false">
+
+<div class="section">
+  <h1>Galeria Intergaláctica WHOMARS</h1>
+  <p>Digite a senha para acessar os foguetes secretos:</p>
+  <input type="password" id="senha" placeholder="Digite a senha">
+  <button onclick="verificarSenha()" class="btn">Acessar Galeria</button>
+</div>
+
+<div id="galeria" class="section">
+  <div class="galeria-scroll">
+    <img src="https://i.ibb.co/fdjHw1qH/file-00000000e5b46230ba7555231f4efeb6-conversation-id-67fefe79.png" alt="Foguete" onmousedown="return false;" ondragstart="return false;">
+    <img src="https://i.ibb.co/xqyMSPyF/file-0000000012f061f7beaca2d2ec16cd79-conversation-id.png" alt="Foguete" onmousedown="return false;" ondragstart="return false;">
+    <img src="https://i.ibb.co/3Y0vShy1/file-000000006f3461f791ef2dc9f397c853-conversation-id-1.png" alt="Foguete" onmousedown="return false;" ondragstart="return false;">
+    <img src="https://i.ibb.co/vvRxvy4P/file-000000006f3461f791ef2dc9f397c853-conversation-id.png" alt="Foguete" onmousedown="return false;" ondragstart="return false;">
+    <img src="https://i.ibb.co/RkB1SgBr/file-00000000b4a861f6a93c4695bd3f093f-conversation-id.png" alt="Foguete" onmousedown="return false;" ondragstart="return false;">
+    <img src="https://i.ibb.co/Xxf4N9TC/file-00000000add461f881959e1494651fff-conversation-id.png" alt="Foguete" onmousedown="return false;" ondragstart="return false;">
+    <img src="https://i.ibb.co/Vp9T5BVK/file-00000000afac6230ab9418d79de557cd-conversation-id-67fefe79.png" alt="Foguete" onmousedown="return false;" ondragstart="return false;">
+    <img src="https://i.ibb.co/RpmYFWNR/file-00000000f90061f6841916e2ec2c8796-conversation-id.png" alt="Foguete" onmousedown="return false;" ondragstart="return false;">
+    <img src="https://i.ibb.co/sxQLvvh/file-00000000864862308575b429ec9fc37f.png" alt="Foguete" onmousedown="return false;" ondragstart="return false;">
+    <img src="https://i.ibb.co/603F3g4w/file-000000002cd861f8b51addb8574a3fc7.png" alt="Foguete" onmousedown="return false;" ondragstart="return false;">
+    <img src="https://i.ibb.co/7N8ZVQRd/file-00000000bfe461f8bf1406265480e8e6.png" alt="Foguete" onmousedown="return false;" ondragstart="return false;">
+    <img src="https://i.ibb.co/3yzvhWkX/file-00000000d4a861f89fc2abab45989264.png" alt="Foguete" onmousedown="return false;" ondragstart="return false;">
+  </div>
+
+  <div style="margin-top: 30px;">
+    <a href="index.html" class="btn">Voltar para a Página Principal</a>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="social-links">
+    <a href="https://facebook.com/whomars" target="_blank">Facebook</a> |
+    <a href="https://instagram.com/whomars_token" target="_blank">Instagram</a> |
+    <a href="https://kwai.com/@whomars" target="_blank">Kwai</a>
+  </div>
+  <p>© 2025 WHOMARS — Explorando a zoeira interplanetária.</p>
+</div>
+
+<script>
+  function verificarSenha() {
+    const senha = document.getElementById("senha").value;
+    if (senha === "whomars") {
+      document.getElementById("galeria").style.display = "block";
+    } else {
+      alert("Senha incorreta! Tente novamente.");
+    }
+  }
+</script>
+
+</body>
+</html>
