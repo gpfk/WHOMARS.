@@ -11,8 +11,7 @@
   <style>
     body {
       margin: 0;
-      background: url('https://i.ibb.co/XWz0jQS/stars-bg.gif') repeat center center fixed;
-      background-size: cover;
+      background-color: #111;
       color: #fff;
       font-family: Arial, sans-serif;
       text-align: center;
@@ -27,9 +26,10 @@
       pointer-events: none;
       -webkit-user-drag: none;
       user-select: none;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      opacity: 0;
-      transform: translateY(30px);
+      transition: transform 0.3s ease;
+    }
+    img:hover {
+      transform: scale(1.03);
     }
     h1, h2 {
       color: #00e6b8;
@@ -99,16 +99,13 @@
       e.preventDefault();
     }
   });
-  window.onbeforeunload = () => "Tem certeza que vai sair antes de investir no foguete?";
 </script>
-
-<audio id="som" src="https://www.myinstants.com/media/sounds/foguete.mp3" preload="auto"></audio>
 
 <img class="banner" src="https://i.ibb.co/XkL8FnTT/file-000000008e3c62308a2df87cd87017ac-conversation-id-67fdc268-aafc-8009-af43-3c233ea751e6-message-i.png" alt="Banner WHOMARS 1">
 <img class="banner" src="https://i.ibb.co/nqcLn2Lm/file-00000000653c61f699992c277d083e7b-conversation-id-67fe96c4-ce40-8009-9623-2f8c1059ee2d-message-i.png" alt="Banner WHOMARS 2">
 
 <div class="section">
-  <a href="https://pancakeswap.finance/swap?outputCurrency=0x0951BD6B6310175EdC9508F3A5A24Ee5" target="_blank" class="buy-button" onclick="document.getElementById('som').play()">
+  <a href="https://pancakeswap.finance/swap?outputCurrency=0x0951BD6B6310175EdC9508F3A5A24Ee5" target="_blank" class="buy-button">
     COMPRAR WHM AGORA
   </a>
   <p id="contador" style="font-size: 18px; color: #00e6b8; margin-top: 10px;"></p>
@@ -152,6 +149,9 @@
     <img src="https://i.ibb.co/Vp9T5BVK/file-00000000afac6230ab9418d79de557cd-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
     <img src="https://i.ibb.co/RpmYFWNR/file-00000000f90061f6841916e2ec2c8796-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
     <img src="https://i.ibb.co/sxQLvvh/file-00000000864862308575b429ec9fc37f-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
+    <img src="https://i.ibb.co/603F3g4w/file-000000002cd861f8b51addb8574a3fc7-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
+    <img src="https://i.ibb.co/7N8ZVQRd/file-00000000bfe461f8bf1406265480e8e6-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
+    <img src="https://i.ibb.co/3yzvhWkX/file-00000000d4a861f89fc2abab45989264-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
   </div>
 </div>
 
@@ -182,19 +182,6 @@
   </div>
   <p>© 2025 WHOMARS — Porque levar a vida a sério não leva a Júpiter.</p>
 </div>
-
-<script>
-  const banners = document.querySelectorAll(".banner");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
-      }
-    });
-  }, { threshold: 0.2 });
-  banners.forEach(img => observer.observe(img));
-</script>
 
 </body>
 </html>
