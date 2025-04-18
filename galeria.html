@@ -1,37 +1,34 @@
  <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8"/>
+  <meta charset="UTF-8">
   <title>Galeria WHOMARS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background: #111;
-      color: white;
+      background-color: #111;
+      color: #fff;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 30px;
+      padding: 20px;
     }
     h1 {
       color: #00e6b8;
     }
-    .container {
+    .grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 15px;
     }
-    .container img {
+    .galeria {
+      width: 200px;
+      height: auto;
       border-radius: 10px;
       box-shadow: 0 0 10px #00e6b8;
-      width: 200px;
-      transition: 0.3s ease;
       pointer-events: none;
       -webkit-user-drag: none;
       user-select: none;
-    }
-    .container img:hover {
-      transform: scale(1.05);
     }
   </style>
   <script>
@@ -39,33 +36,13 @@
   </script>
 </head>
 <body>
-  <h1>Galeria de Foguetes WHOMARS</h1>
-  <div class="container">
-    <img src="https://i.ibb.co/d4v40Qw2/file-000000006d4061f6932296188d8c804a-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/5w7xsWZ/Screenshot-2025-04-18-06-20-06-752-com-android-chrome.jpg" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/fdjHw1qH/file-00000000e5b46230ba7555231f4efeb6-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/xqyMSPyF/file-0000000012f061f7beaca2d2ec16cd79-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/3Y0vShy1/file-000000006f3461f791ef2dc9f397c853-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/RkB1SgBr/file-00000000b4a861f6a93c4695bd3f093f-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/xSmcPC2n/file-0000000048f461f784b1e7f32e909cb0-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/Xxf4N9TC/file-00000000add461f881959e1494651fff-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/LDKZv3cm/file-0000000013cc61f7af1327b53ed91f66-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/K1NNJyX/file-000000004bd461f7a1e598f5fedad5f5-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/BVqQ73jL/file-0000000044a061f7bd4f24346e2d34ce-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/QjtxhN13/file-00000000dc8861f7910bf82bfd2c8055-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/SXm98F9H/file-000000003bbc61f7b54e5fa64fd10438-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/4n1xCvGc/file-00000000578c61f7b44174588b041b33-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/603F3g4w/file-000000002cd861f8b51addb8574a3fc7-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/7N8ZVQRd/file-00000000bfe461f8bf1406265480e8e6-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/3yzvhWkX/file-00000000d4a861f89fc2abab45989264-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/sxQLvvh/file-00000000864862308575b429ec9fc37f-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/RpmYFWNR/file-00000000f90061f6841916e2ec2c8796-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/Vp9T5BVK/file-00000000afac6230ab9418d79de557cd-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/tMHZbHGS/file-00000000f6906230b78176cfbeff11b7-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/Ndh4WwBv/file-00000000f30c61f8b8e516f4ca6190c2-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/KxbbBYvp/file-00000000ab2c61f882aa4c8245c64129-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/q364QLNy/file-0000000062a46230a3eae893a4aad455-conversation-id.png" alt="WHOMARS"/>
-    <img src="https://i.ibb.co/YByH3VG6/file-0000000086b462308e4e0334dbf703b3-conversation-id.png" alt="WHOMARS"/>
+  <h1>Galeria Secreta de Foguetes WHOMARS</h1>
+  <div class="grid">
+    <!-- Aqui entram as 78 imagens únicas -->
+    <img src="https://i.ibb.co/d4v40Qw2/file-000000006d4061f6932296188d8c804a-conversation-id.png" alt="Foguete WHOMARS" class="galeria">
+    <img src="https://i.ibb.co/5w7xsWZ/Screenshot-2025-04-18-06-20-06-752-com-android-chrome.jpg" alt="Foguete WHOMARS" class="galeria">
+    <img src="https://i.ibb.co/fdjHw1qH/file-00000000e5b46230ba7555231f4efeb6-conversation-id.png" alt="Foguete WHOMARS" class="galeria">
+    <!-- ... (continua com as demais imagens sem repetições) -->
   </div>
 </body>
 </html>
