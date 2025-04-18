@@ -27,6 +27,8 @@
       width: 200px;
       transition: 0.3s ease;
       pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
     }
     .container img:hover { transform: scale(1.05); }
     .senha {
@@ -54,6 +56,7 @@
   </style>
 </head>
 <body oncontextmenu="return false">
+
   <h1>Galeria Secreta de Foguetes WHOMARS</h1>
 
   <div class="senha">
@@ -63,46 +66,20 @@
   </div>
 
   <div class="container" id="galeria">
-    <!-- Suas imagens -->
-    <a href="https://i.ibb.co/fdjHw1qH/file-00000000e5b46230ba7555231f4efeb6-conversation-id-67fefe79.png" target="_blank">
-      <img src="https://i.ibb.co/fdjHw1qH/file-00000000e5b46230ba7555231f4efeb6-conversation-id-67fefe79.png" alt="Foguete 1">
-    </a>
-    <a href="https://i.ibb.co/xqyMSPyF/file-0000000012f061f7beaca2d2ec16cd79-conversation-id.png" target="_blank">
-      <img src="https://i.ibb.co/xqyMSPyF/file-0000000012f061f7beaca2d2ec16cd79-conversation-id.png" alt="Foguete 2">
-    </a>
-    <a href="https://i.ibb.co/3Y0vShy1/file-000000006f3461f791ef2dc9f397c853-conversation-id-1.png" target="_blank">
-      <img src="https://i.ibb.co/3Y0vShy1/file-000000006f3461f791ef2dc9f397c853-conversation-id-1.png" alt="Foguete 3">
-    </a>
-    <a href="https://i.ibb.co/vvRxvy4P/file-000000006f3461f791ef2dc9f397c853-conversation-id.png" target="_blank">
-      <img src="https://i.ibb.co/vvRxvy4P/file-000000006f3461f791ef2dc9f397c853-conversation-id.png" alt="Foguete 4">
-    </a>
-    <a href="https://i.ibb.co/RkB1SgBr/file-00000000b4a861f6a93c4695bd3f093f-conversation-id.png" target="_blank">
-      <img src="https://i.ibb.co/RkB1SgBr/file-00000000b4a861f6a93c4695bd3f093f-conversation-id.png" alt="Foguete 5">
-    </a>
-    <a href="https://i.ibb.co/xSmcPC2n/file-0000000048f461f784b1e7f32e909cb0-conversation-id.png" target="_blank">
-      <img src="https://i.ibb.co/xSmcPC2n/file-0000000048f461f784b1e7f32e909cb0-conversation-id.png" alt="Foguete 6">
-    </a>
-    <a href="https://i.ibb.co/Xxf4N9TC/file-00000000add461f881959e1494651fff-conversation-id.png" target="_blank">
-      <img src="https://i.ibb.co/Xxf4N9TC/file-00000000add461f881959e1494651fff-conversation-id.png" alt="Foguete 7">
-    </a>
-    <a href="https://i.ibb.co/LDKZv3cm/file-0000000013cc61f7af1327b53ed91f66-conversation-id.png" target="_blank">
-      <img src="https://i.ibb.co/LDKZv3cm/file-0000000013cc61f7af1327b53ed91f66-conversation-id.png" alt="Foguete 8">
-    </a>
-    <a href="https://i.ibb.co/K1NNJyX/file-000000004bd461f7a1e598f5fedad5f5-conversation-id.png" target="_blank">
-      <img src="https://i.ibb.co/K1NNJyX/file-000000004bd461f7a1e598f5fedad5f5-conversation-id.png" alt="Foguete 9">
-    </a>
-    <a href="https://i.ibb.co/BVqQ73jL/file-0000000044a061f7bd4f24346e2d34ce-conversation-id.png" target="_blank">
-      <img src="https://i.ibb.co/BVqQ73jL/file-0000000044a061f7bd4f24346e2d34ce-conversation-id.png" alt="Foguete 10">
-    </a>
-    <a href="https://i.ibb.co/QjtxhN13/file-00000000dc8861f7910bf82bfd2c8055-conversation-id.png" target="_blank">
-      <img src="https://i.ibb.co/QjtxhN13/file-00000000dc8861f7910bf82bfd2c8055-conversation-id.png" alt="Foguete 11">
-    </a>
-    <a href="https://i.ibb.co/SXm98F9H/file-000000003bbc61f7b54e5fa64fd10438-conversation-id.png" target="_blank">
-      <img src="https://i.ibb.co/SXm98F9H/file-000000003bbc61f7b54e5fa64fd10438-conversation-id.png" alt="Foguete 12">
-    </a>
-    <a href="https://i.ibb.co/4n1xCvGc/file-00000000578c61f7b44174588b041b33-conversation-id.png" target="_blank">
-      <img src="https://i.ibb.co/4n1xCvGc/file-00000000578c61f7b44174588b041b33-conversation-id.png" alt="Foguete 13">
-    </a>
+    <!-- IMAGENS PROTEGIDAS (sem link) -->
+    <img src="https://i.ibb.co/fdjHw1qH/file-00000000e5b46230ba7555231f4efeb6-conversation-id-67fefe79.png" alt="Foguete 1">
+    <img src="https://i.ibb.co/xqyMSPyF/file-0000000012f061f7beaca2d2ec16cd79-conversation-id.png" alt="Foguete 2">
+    <img src="https://i.ibb.co/3Y0vShy1/file-000000006f3461f791ef2dc9f397c853-conversation-id-1.png" alt="Foguete 3">
+    <img src="https://i.ibb.co/vvRxvy4P/file-000000006f3461f791ef2dc9f397c853-conversation-id.png" alt="Foguete 4">
+    <img src="https://i.ibb.co/RkB1SgBr/file-00000000b4a861f6a93c4695bd3f093f-conversation-id.png" alt="Foguete 5">
+    <img src="https://i.ibb.co/xSmcPC2n/file-0000000048f461f784b1e7f32e909cb0-conversation-id.png" alt="Foguete 6">
+    <img src="https://i.ibb.co/Xxf4N9TC/file-00000000add461f881959e1494651fff-conversation-id.png" alt="Foguete 7">
+    <img src="https://i.ibb.co/LDKZv3cm/file-0000000013cc61f7af1327b53ed91f66-conversation-id.png" alt="Foguete 8">
+    <img src="https://i.ibb.co/K1NNJyX/file-000000004bd461f7a1e598f5fedad5f5-conversation-id.png" alt="Foguete 9">
+    <img src="https://i.ibb.co/BVqQ73jL/file-0000000044a061f7bd4f24346e2d34ce-conversation-id.png" alt="Foguete 10">
+    <img src="https://i.ibb.co/QjtxhN13/file-00000000dc8861f7910bf82bfd2c8055-conversation-id.png" alt="Foguete 11">
+    <img src="https://i.ibb.co/SXm98F9H/file-000000003bbc61f7b54e5fa64fd10438-conversation-id.png" alt="Foguete 12">
+    <img src="https://i.ibb.co/4n1xCvGc/file-00000000578c61f7b44174588b041b33-conversation-id.png" alt="Foguete 13">
 
     <div class="voltar">
       <a href="index.html"><button class="btn">Voltar para o Site Principal</button></a>
@@ -119,5 +96,6 @@
       }
     }
   </script>
+
 </body>
 </html>
