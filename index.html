@@ -16,24 +16,27 @@
       text-align: center;
       user-select: none;
     }
-
     h1, h2 {
       color: #00e6b8;
       animation: vibrar 0.4s infinite;
     }
-
     @keyframes vibrar {
       0%, 100% { transform: translateX(0); }
       25% { transform: translateX(-2px); }
       75% { transform: translateX(2px); }
     }
-
     .section {
       padding: 40px 20px;
       max-width: 800px;
       margin: auto;
     }
-
+    .banner {
+      width: 100%;
+      max-width: 800px;
+      margin: 30px auto 10px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00e6b8;
+    }
     .buy-button {
       background-color: #00b894;
       color: white;
@@ -48,18 +51,15 @@
       animation: pulse 2s infinite;
       border: none;
     }
-
     .buy-button:hover {
       background-color: #00e6b8;
       box-shadow: 0 0 15px #00e6b8;
     }
-
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-
     .footer {
       background: #000;
       padding: 30px 10px;
@@ -67,22 +67,18 @@
       color: #aaa;
       margin-top: 50px;
     }
-
     .social-links a {
       color: #00e6b8;
       margin: 0 10px;
       text-decoration: none;
     }
-
     .why-invest ul, .roadmap ul {
       list-style: none;
       padding: 0;
     }
-
     .why-invest li, .roadmap li {
       margin: 8px 0;
     }
-
     .alerta-topo {
       background: #00e6b8;
       color: #000;
@@ -90,7 +86,6 @@
       padding: 10px;
       animation: piscar 1s infinite;
     }
-
     @keyframes piscar {
       0%, 100% {opacity: 1;}
       50% {opacity: 0.5;}
@@ -99,18 +94,16 @@
 </head>
 <body oncontextmenu="return false">
 
-<!-- Mensagem no topo -->
+<!-- Alerta topo -->
 <div class="alerta-topo">
   WHOMARS PRÉ-VENDA ATIVA! NÃO PERCA A VIAGEM PARA MARTE!
 </div>
 
-<!-- Título com efeito vibrar -->
-<div class="section">
-  <h1>WHOMARS - A Cripto Zoada Interplanetária</h1>
-  <p>Corra para não perder o foguete da zoeira espacial!</p>
-</div>
+<!-- Banners -->
+<img class="banner" src="https://i.ibb.co/XkL8FnTT/file-000000008e3c62308a2df87cd87017ac-conversation-id-67fdc268-aafc-8009-af43-3c233ea751e6-message-i.png" alt="Banner WHOMARS 1">
+<img class="banner" src="https://i.ibb.co/nqcLn2Lm/file-00000000653c61f699992c277d083e7b-conversation-id-67fe96c4-ce40-8009-9623-2f8c1059ee2d-message-i.png" alt="Banner WHOMARS 2">
 
-<!-- Botões interativos -->
+<!-- Botões -->
 <div class="section">
   <a href="https://pancakeswap.finance/swap?outputCurrency=0x0951BD6B6310175EdC9508F3A5A24Ee5" target="_blank">
     <button class="buy-button">COMPRAR WHM AGORA</button>
@@ -120,7 +113,34 @@
   </button>
 </div>
 
-<!-- Por que investir -->
+<!-- Contador -->
+<div class="section">
+  <p id="contador" style="font-size: 18px; color: #00e6b8;"></p>
+</div>
+<script>
+  const countdownDate = new Date("2025-04-30T23:59:59").getTime();
+  const timer = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+    if (distance < 0) {
+      clearInterval(timer);
+      document.getElementById("contador").innerText = "A pré-venda terminou!";
+      return;
+    }
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    document.getElementById("contador").innerText = `Faltam ${days}d ${hours}h ${minutes}min para o fim da pré-venda!`;
+  }, 1000);
+</script>
+
+<!-- Descrição -->
+<div class="section">
+  <h1>WHOMARS - A Cripto Zoada Interplanetária</h1>
+  <p>Corra para não perder o foguete da zoeira espacial!</p>
+</div>
+
+<!-- Porque investir -->
 <div class="section why-invest">
   <h2>Por que investir em WHOMARS?</h2>
   <ul>
@@ -129,6 +149,16 @@
     <li>✔ Lançamento seguro via Pinksale</li>
     <li>✔ Participação da galera do Brasil, China, Rússia e Japão</li>
   </ul>
+</div>
+
+<!-- Foguetes -->
+<div class="section">
+  <h2>Foguetes Intergalácticos</h2>
+  <div style="overflow-x: auto; white-space: nowrap;">
+    <img src="https://i.ibb.co/Vp9T5BVK/file-00000000afac6230ab9418d79de557cd-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
+    <img src="https://i.ibb.co/RpmYFWNR/file-00000000f90061f6841916e2ec2c8796-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
+    <img src="https://i.ibb.co/sxQLvvh/file-00000000864862308575b429ec9fc37f-conversation-id-67fefe79-670c-8009-a7fa-31d982e1ee2e-message-i.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
+  </div>
 </div>
 
 <!-- Tokenomics -->
@@ -157,10 +187,4 @@
   <div class="social-links">
     <a href="https://facebook.com/whomars" target="_blank">Facebook</a> |
     <a href="https://instagram.com/whomars_token" target="_blank">Instagram</a> |
-    <a href="https://kwai.com/@whomars" target="_blank">Kwai</a>
-  </div>
-  <p>© 2025 WHOMARS — Porque levar a vida a sério não leva a Júpiter.</p>
-</div>
-
-</body>
-</html>
+    <a href="https://kwai.com/@whomars" target="_blank">
