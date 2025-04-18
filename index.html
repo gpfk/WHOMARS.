@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WHOMARS - Cripto Nonsense Interplanetária</title>
+  <meta name="description" content="Token WHOMARS (WHM): a criptomoeda meme interplanetária rumo a Marte.">
+  <meta name="keywords" content="WHOMARS, WHM, memecoin, cripto meme, foguete interplanetário">
+  <meta name="author" content="WHOMARS Team">
+  <link rel="icon" href="https://i.ibb.co/Khq8dMs/whm-favicon.png" type="image/png" />
   <style>
     body {
       margin: 0;
@@ -15,24 +19,11 @@
     }
     h1, h2 {
       color: #00e6b8;
-      animation: vibrar 0.4s infinite;
-    }
-    @keyframes vibrar {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-2px); }
-      75% { transform: translateX(2px); }
     }
     .section {
       padding: 40px 20px;
       max-width: 800px;
       margin: auto;
-    }
-    .banner {
-      width: 100%;
-      max-width: 800px;
-      margin: 30px auto 10px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #00e6b8;
     }
     .buy-button {
       background-color: #00b894;
@@ -44,18 +35,7 @@
       box-shadow: 0 0 10px #00b894;
       margin: 10px;
       cursor: pointer;
-      transition: 0.3s ease;
-      animation: pulse 2s infinite;
       border: none;
-    }
-    .buy-button:hover {
-      background-color: #00e6b8;
-      box-shadow: 0 0 15px #00e6b8;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
     }
     .footer {
       background: #000;
@@ -69,90 +49,59 @@
       margin: 0 10px;
       text-decoration: none;
     }
-    .alerta-topo {
-      background: #00e6b8;
-      color: #000;
-      font-weight: bold;
+    input {
       padding: 10px;
-      animation: piscar 1s infinite;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      width: 160px;
     }
-    @keyframes piscar {
-      0%, 100% {opacity: 1;}
-      50% {opacity: 0.5;}
+    button {
+      padding: 10px 20px;
+      background-color: #00e6b8;
+      border: none;
+      color: #111;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .img-block {
+      background: #222;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 30px auto;
+      max-width: 320px;
+    }
+    .hidden-img {
+      display: none;
+      margin-top: 15px;
+    }
+    img {
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00e6b8;
     }
   </style>
 </head>
-<body oncontextmenu="return false">
-
-<div class="alerta-topo">
-  WHOMARS PRÉ-VENDA ATIVA! NÃO PERCA A VIAGEM PARA MARTE!
-</div>
-
-<img class="banner" src="https://i.ibb.co/XkL8FnTT/file-000000008e3c62308a2df87cd87017ac-conversation-id-67fdc268-aafc-8009-af43-3c233ea751e6-message-i.png" alt="Banner WHOMARS 1">
-<img class="banner" src="https://i.ibb.co/nqcLn2Lm/file-00000000653c61f699992c277d083e7b-conversation-id-67fe96c4-ce40-8009-9623-2f8c1059ee2d-message-i.png" alt="Banner WHOMARS 2">
+<body>
 
 <div class="section">
+  <h1>WHOMARS</h1>
+  <p>A cripto zoada interplanetária rumo a Marte. Pré-venda ativa!</p>
   <a href="https://pancakeswap.finance/swap?outputCurrency=0x0951BD6B6310175EdC9508F3A5A24Ee5" target="_blank">
     <button class="buy-button">COMPRAR WHM AGORA</button>
   </a>
-  <button onclick="ativarModoGalactico()" class="buy-button">
-    ATIVAR MODO GALÁCTICO
-  </button>
-  <a href="https://chat.whatsapp.com/Ef9mGFpadONHmdnZNvOvJj" target="_blank">
-    <button class="buy-button">ENTRAR NO GRUPO WHOMARS</button>
-  </a>
-  <p id="textoGalactico" style="margin-top:15px; color:#00e6b8; font-style: italic;"></p>
 </div>
 
 <div class="section">
-  <p id="contador" style="font-size: 18px; color: #00e6b8;"></p>
-</div>
+  <h2>Foguetes Protegidos</h2>
+  <div class="img-block">
+    <p>Digite a senha para ver a imagem</p>
+    <input type="password" id="senha">
+    <button onclick="mostrarImagem()">Ver</button>
 
-<script>
-  const countdownDate = new Date("2025-04-30T23:59:59").getTime();
-  const timer = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = countdownDate - now;
-    if (distance < 0) {
-      clearInterval(timer);
-      document.getElementById("contador").innerText = "A pré-venda terminou!";
-      return;
-    }
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    document.getElementById("contador").innerText = `Faltam ${days}d ${hours}h ${minutes}min para o fim da pré-venda!`;
-  }, 1000);
-
-  function ativarModoGalactico() {
-    document.body.style.background = '#05031a';
-    document.getElementById("textoGalactico").innerText =
-      'Você ativou o modo galáctico! Boa sorte tentando chegar a Júpiter com esse foguete memeiro...';
-  }
-</script>
-
-<div class="section">
-  <h2>A Corrida Espacial Memeal</h2>
-  <p>Em um futuro muito próximo (ou já atrasado), as maiores potências mundiais resolveram largar as tretas na Terra e disputar quem chega primeiro a Marte... <strong>de foguete memeiro</strong>.</p>
-  <ul style="text-align:left; max-width:600px; margin:auto;">
-    <li>• O Brasil, com seu foguete movido a coxinha, samba e improviso;</li>
-    <li>• A Rússia, com um foguete que parece ter saído direto de um fliperama soviético;</li>
-    <li>• A China, que lançou 38 foguetes ao mesmo tempo, só pra garantir;</li>
-    <li>• O Japão, que mandou um robô samurai pilotando o foguete;</li>
-    <li>• E a Europa, que ainda está votando pra decidir quem leva o combustível.</li>
-  </ul>
-  <p>No meio disso tudo, nasce o WHOMARS — a cripto zoada que não promete te deixar rico, <strong>mas promete te levar na zoeira até o espaço</strong>.</p>
-</div>
-
-<div class="section">
-  <h2>Foguetes Intergalácticos</h2>
-  <div style="overflow-x: auto; white-space: nowrap;">
-    <img src="https://i.ibb.co/Vp9T5BVK/file-00000000afac6230ab9418d79de557cd-conversation-id-67fefe79.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
-    <img src="https://i.ibb.co/RpmYFWNR/file-00000000f90061f6841916e2ec2c8796-conversation-id.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
-    <img src="https://i.ibb.co/sxQLvvh/file-00000000864862308575b429ec9fc37f.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
-    <img src="https://i.ibb.co/603F3g4w/file-000000002cd861f8b51addb8574a3fc7.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
-    <img src="https://i.ibb.co/7N8ZVQRd/file-00000000bfe461f8bf1406265480e8e6.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
-    <img src="https://i.ibb.co/3yzvhWkX/file-00000000d4a861f89fc2abab45989264.png" class="banner" style="display:inline-block; width:200px; margin-right: 10px;">
+    <div id="imagem" class="hidden-img">
+      <img id="imagem-exibida" src="" width="200">
+      <p style="color:#aaa; font-size:12px;">Imagem visível por 20 segundos</p>
+    </div>
   </div>
 </div>
 
@@ -164,17 +113,6 @@
   <p><strong>Rede:</strong> BNB Smart Chain</p>
 </div>
 
-<div class="section roadmap">
-  <h2>Roadmap Interplanetário</h2>
-  <ul>
-    <li>✔ Pré-venda inicial</li>
-    <li>✔ Listagem PancakeSwap</li>
-    <li>🚀 Lançamento da coleção NFT WHOMARS</li>
-    <li>🛸 Expansão para exchanges e staking</li>
-    <li>🌕 MemeSpace Game (fase zoeira final)</li>
-  </ul>
-</div>
-
 <div class="footer">
   <div class="social-links">
     <a href="https://facebook.com/whomars" target="_blank">Facebook</a> |
@@ -183,6 +121,36 @@
   </div>
   <p>© 2025 WHOMARS — Porque levar a vida a sério não leva a Júpiter.</p>
 </div>
+
+<script>
+  const imagens = [
+    "https://i.ibb.co/fdjHw1qH/file-00000000e5b46230ba7555231f4efeb6-conversation-id-67fefe79.png",
+    "https://i.ibb.co/xqyMSPyF/file-0000000012f061f7beaca2d2ec16cd79-conversation-id.png",
+    "https://i.ibb.co/3Y0vShy1/file-000000006f3461f791ef2dc9f397c853-conversation-id-1.png",
+    "https://i.ibb.co/vvRxvy4P/file-000000006f3461f791ef2dc9f397c853-conversation-id.png",
+    "https://i.ibb.co/RkB1SgBr/file-00000000b4a861f6a93c4695bd3f093f-conversation-id.png",
+    "https://i.ibb.co/Xxf4N9TC/file-00000000add461f881959e1494651fff-conversation-id.png"
+  ];
+
+  let imagemAtual = 0;
+  let timer;
+
+  function mostrarImagem() {
+    const senha = document.getElementById("senha").value;
+    if (senha === "whm2025") {
+      document.getElementById("imagem-exibida").src = imagens[imagemAtual];
+      document.getElementById("imagem").style.display = "block";
+
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        document.getElementById("imagem").style.display = "none";
+        imagemAtual = (imagemAtual + 1) % imagens.length;
+      }, 20000);
+    } else {
+      alert("Senha incorreta!");
+    }
+  }
+</script>
 
 </body>
 </html>
