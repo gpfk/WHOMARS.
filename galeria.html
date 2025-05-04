@@ -5,97 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galeria WHOMARS</title>
   <style>
-    body {
-      background-color: black;
-      color: #55ffbb;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 1rem;
-    }
-    h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    input {
-      display: block;
-      margin: 0 auto 2rem auto;
-      padding: 0.5rem;
-      width: 80%;
-      max-width: 400px;
-      font-size: 1rem;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      padding: 0;
-    }
-    .card {
-      background: #111;
-      padding: 1rem;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 0 10px #55ffbb33;
-    }
-    .card img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .card h3, .card p {
-      margin: 0.5rem 0;
-    }
+    body { font-family: Arial, sans-serif; background: #111; color: #fff; margin: 0; padding: 20px; }
+    h1 { text-align: center; margin-bottom: 20px; }
+    input { width: 100%; padding: 10px; margin-bottom: 20px; font-size: 16px; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .item { background: #222; border-radius: 10px; overflow: hidden; box-shadow: 0 0 10px #000; }
+    .item img { width: 100%; display: block; cursor: zoom-in; }
+    .info { padding: 15px; }
+    .info h2 { font-size: 18px; margin: 0 0 10px; }
+    .info p { font-size: 14px; margin: 5px 0; color: #ccc; }
   </style>
 </head>
 <body>
   <h1>Galeria WHOMARS</h1>
-  <input type="text" id="filter" placeholder="Filtrar por artista, título ou descrição...">
+  <input type="text" id="search" placeholder="Buscar por nome, descrição ou autor..." />
+
   <div class="gallery" id="gallery"></div>
 
   <script>
-    const sheetUrl = "https://docs.google.com/spreadsheets/d/170SkNOp1pX22FJs7xgsNs4McSTIldLwI/gviz/tq?tqx=out:json";
+    const sheetURL = 'https://docs.google.com/spreadsheets/d/170SkNOp1pX22FJs7xgsNs4McSTIldLwI/gviz/tq?tqx=out:json';
 
-    fetch(sheetUrl)
-      .then(res => res.text())
-      .then(data => {
-        const json = JSON.parse(data.substring(47).slice(0, -2));
-        const rows = json.table.rows;
+    async function fetchData() {
+      const res = await fetch(sheetURL);
+      const text = await res.text();
+      const json = JSON.parse(text.substr(47).slice(0, -2));
+      const rows = json.table.rows.map(r => r.c.map(c => c ? c.v : ''));
+      return rows.slice(1); // remove cabeçalho
+    }
 
-        const entries = rows.map(row => {
-          const [artista, titulo, descricao, imagem] = row.c.map(cell => cell?.v || "");
-          return { artista, titulo, descricao, imagem };
-        });
-
-        const gallery = document.getElementById("gallery");
-        const filter = document.getElementById("filter");
-
-        function renderGallery(filteredEntries) {
-          gallery.innerHTML = "";
-          filteredEntries.forEach(({ artista, titulo, descricao, imagem }) => {
-            const card = document.createElement("div");
-            card.className = "card";
-            card.innerHTML = `
-              <img src="${imagem}" alt="${titulo}" loading="lazy">
-              <h3>${titulo}</h3>
-              <p><strong>${artista}</strong></p>
-              <p>${descricao}</p>
-            `;
-            gallery.appendChild(card);
-          });
-        }
-
-        filter.addEventListener("input", () => {
-          const term = filter.value.toLowerCase();
-          const filtered = entries.filter(({ artista, titulo, descricao }) =>
-            artista.toLowerCase().includes(term) ||
-            titulo.toLowerCase().includes(term) ||
-            descricao.toLowerCase().includes(term)
-          );
-          renderGallery(filtered);
-        });
-
-        renderGallery(entries);
+    function renderGallery(data) {
+      const gallery = document.getElementById('gallery');
+      gallery.innerHTML = '';
+      data.forEach(([img, nome, descricao, autor]) => {
+        const item = document.createElement('div');
+        item.className = 'item';
+        item.innerHTML = `
+          <img src="${img}" alt="${nome}" onclick="zoomImage(this)">
+          <div class="info">
+            <h2>${nome}</h2>
+            <p>${descricao}</p>
+            <p><strong>${autor}</strong></p>
+          </div>
+        `;
+        gallery.appendChild(item);
       });
+    }
+
+    function zoomImage(img) {
+      const w = window.open('');
+      w.document.write(`<img src="${img.src}" style="width:100%">`);
+    }
+
+    function applySearch(data) {
+      const input = document.getElementById('search');
+      input.addEventListener('input', () => {
+        const term = input.value.toLowerCase();
+        const filtered = data.filter(([img, nome, desc, autor]) =>
+          nome.toLowerCase().includes(term) ||
+          desc.toLowerCase().includes(term) ||
+          autor.toLowerCase().includes(term)
+        );
+        renderGallery(filtered);
+      });
+    }
+
+    fetchData().then(data => {
+      renderGallery(data);
+      applySearch(data);
+    });
   </script>
 </body>
 </html>
