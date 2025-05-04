@@ -64,6 +64,32 @@
   </style>
 </head>
 <body>
+   <style>
+  body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  img {
+    pointer-events: none;
+  }
+</style>
+<script>
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  document.addEventListener('keyup', function(e) {
+    if (e.key === 'PrintScreen') {
+      navigator.clipboard.writeText('Protegido por WHOMARS!');
+      alert("Captura de tela bloqueada.");
+    }
+  });
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey && (e.key === 's' || e.key === 'u')) || e.key === 'F12') {
+      e.preventDefault();
+      alert('Ação bloqueada pelo sistema WHOMARS.');
+    }
+  });
+</script>
   <h1>Galeria de Artes WHOMARS</h1>
   <input type="text" id="busca" placeholder="Buscar por autor, título ou descrição...">
   <div class="galeria" id="galeria"></div>
