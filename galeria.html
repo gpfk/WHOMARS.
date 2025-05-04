@@ -2,108 +2,99 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galeria WHOMARS</title>
   <style>
     body {
-      background: #000;
-      color: #fff;
+      background-color: black;
+      color: #55ffbb;
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 1rem;
     }
     h1 {
       text-align: center;
-      margin-bottom: 10px;
-      color: #00ffc8;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
-    #filtro {
+    input {
       display: block;
-      margin: 0 auto 20px auto;
-      padding: 10px;
-      width: 90%;
+      margin: 0 auto 2rem auto;
+      padding: 0.5rem;
+      width: 80%;
       max-width: 400px;
-      border-radius: 5px;
-      border: none;
-      font-size: 16px;
+      font-size: 1rem;
     }
-    .galeria {
+    .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 1.5rem;
+      padding: 0;
     }
-    .item {
+    .card {
       background: #111;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #00ffbf44;
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 10px #55ffbb33;
     }
-    .item img {
+    .card img {
       width: 100%;
       border-radius: 8px;
     }
-    .info {
-      margin-top: 10px;
-    }
-    .info h3 {
-      margin: 0;
-      color: #00ffc8;
-    }
-    .info p {
-      margin: 4px 0;
+    .card h3, .card p {
+      margin: 0.5rem 0;
     }
   </style>
 </head>
 <body>
   <h1>Galeria WHOMARS</h1>
-  <input type="text" id="filtro" placeholder="Filtrar por artista, título ou descrição..." />
-  <div class="galeria" id="galeria"></div>
+  <input type="text" id="filter" placeholder="Filtrar por artista, título ou descrição...">
+  <div class="gallery" id="gallery"></div>
 
   <script>
-    const sheetId = "12XdE5CPYxIEZs9D6LxH40d-skBjMSvYh";
-    const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json`;
+    const sheetUrl = "https://docs.google.com/spreadsheets/d/170SkNOp1pX22FJs7xgsNs4McSTIldLwI/gviz/tq?tqx=out:json";
 
-    fetch(url)
+    fetch(sheetUrl)
       .then(res => res.text())
       .then(data => {
-        const json = JSON.parse(data.substr(47).slice(0, -2));
-        const galeria = document.getElementById("galeria");
+        const json = JSON.parse(data.substring(47).slice(0, -2));
+        const rows = json.table.rows;
 
-        let obras = json.table.rows.map(row => ({
-          artista: row.c[0]?.v || "",
-          titulo: row.c[1]?.v || "",
-          descricao: row.c[2]?.v || "",
-          imagem: row.c[3]?.v || ""
-        }));
+        const entries = rows.map(row => {
+          const [artista, titulo, descricao, imagem] = row.c.map(cell => cell?.v || "");
+          return { artista, titulo, descricao, imagem };
+        });
 
-        function render(filtro = "") {
-          galeria.innerHTML = "";
-          obras
-            .filter(o => {
-              const termo = filtro.toLowerCase();
-              return o.artista.toLowerCase().includes(termo) ||
-                     o.titulo.toLowerCase().includes(termo) ||
-                     o.descricao.toLowerCase().includes(termo);
-            })
-            .forEach(o => {
-              const div = document.createElement("div");
-              div.className = "item";
-              div.innerHTML = `
-                <img src="${o.imagem}" alt="${o.titulo}" />
-                <div class="info">
-                  <h3>${o.titulo}</h3>
-                  <p><strong>${o.artista}</strong></p>
-                  <p>${o.descricao}</p>
-                </div>`;
-              galeria.appendChild(div);
-            });
+        const gallery = document.getElementById("gallery");
+        const filter = document.getElementById("filter");
+
+        function renderGallery(filteredEntries) {
+          gallery.innerHTML = "";
+          filteredEntries.forEach(({ artista, titulo, descricao, imagem }) => {
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+              <img src="${imagem}" alt="${titulo}" loading="lazy">
+              <h3>${titulo}</h3>
+              <p><strong>${artista}</strong></p>
+              <p>${descricao}</p>
+            `;
+            gallery.appendChild(card);
+          });
         }
 
-        render();
-
-        document.getElementById("filtro").addEventListener("input", e => {
-          render(e.target.value);
+        filter.addEventListener("input", () => {
+          const term = filter.value.toLowerCase();
+          const filtered = entries.filter(({ artista, titulo, descricao }) =>
+            artista.toLowerCase().includes(term) ||
+            titulo.toLowerCase().includes(term) ||
+            descricao.toLowerCase().includes(term)
+          );
+          renderGallery(filtered);
         });
+
+        renderGallery(entries);
       });
   </script>
 </body>
