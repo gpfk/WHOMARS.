@@ -25,14 +25,6 @@
   <script>
     const sheetURL = 'https://docs.google.com/spreadsheets/d/170SkNOp1pX22FJs7xgsNs4McSTIldLwI/gviz/tq?tqx=out:json';
 
-    function fixLink(url) {
-      const match = url.match(/\/d\/(.*?)\//);
-      if (match) {
-        return `https://drive.google.com/uc?export=view&id=${match[1]}`;
-      }
-      return url;
-    }
-
     async function fetchData() {
       const res = await fetch(sheetURL);
       const text = await res.text();
@@ -45,10 +37,11 @@
       const gallery = document.getElementById('gallery');
       gallery.innerHTML = '';
       data.forEach(([img, nome, descricao, autor]) => {
+        if (!img.startsWith('http')) return; // ignora linhas inválidas
         const item = document.createElement('div');
         item.className = 'item';
         item.innerHTML = `
-          <img src="${fixLink(img)}" alt="${nome}" onclick="zoomImage(this)">
+          <img src="${img}" alt="${nome}" onclick="zoomImage(this)">
           <div class="info">
             <h2>${nome}</h2>
             <p>${descricao}</p>
