@@ -1,195 +1,91 @@
-<a href="whomars.html">
-  <button class="botao">Ver Galeria</button>
-</a>
-<!DOCTYPE html>
-<html lang="pt-br">
+ <!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WHOMARS - Galeria Interplanetária</title>
+  <meta charset="UTF-8">
+  <title>WHOMARS - Página Principal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      margin: 0;
       background-color: #111;
       color: #fff;
       font-family: Arial, sans-serif;
       text-align: center;
-      user-select: none;
+      padding: 50px;
     }
-    h1, h2 {
+    h1 {
       color: #00e6b8;
-      animation: vibrar 0.4s infinite;
     }
-    @keyframes vibrar {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-2px); }
-      75% { transform: translateX(2px); }
-    }
-    .section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    .banner {
-      width: 100%;
-      max-width: 800px;
-      margin: 30px auto 10px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #00e6b8;
-    }
-    .buy-button {
+    .botao {
       background-color: #00b894;
       color: white;
       padding: 15px 30px;
-      font-size: 20px;
+      font-size: 18px;
       border-radius: 10px;
-      text-decoration: none;
-      box-shadow: 0 0 10px #00b894;
-      margin: 10px;
-      cursor: pointer;
-      transition: 0.3s ease;
-      animation: pulse 2s infinite;
       border: none;
+      cursor: pointer;
+      margin: 20px;
+      box-shadow: 0 0 10px #00e6b8;
     }
-    .buy-button:hover {
+    .botao:hover {
       background-color: #00e6b8;
-      box-shadow: 0 0 15px #00e6b8;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    .footer {
-      background: #000;
-      padding: 30px 10px;
-      font-size: 14px;
-      color: #aaa;
-      margin-top: 50px;
-    }
-    .social-links a {
-      color: #00e6b8;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-    .alerta-topo {
-      background: #00e6b8;
-      color: #000;
-      font-weight: bold;
-      padding: 10px;
-      animation: piscar 1s infinite;
-    }
-    @keyframes piscar {
-      0%, 100% {opacity: 1;}
-      50% {opacity: 0.5;}
     }
     form {
-      display: flex;
-      flex-direction: column;
-      max-width: 400px;
-      margin: auto;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: 40px auto;
+      box-shadow: 0 0 10px #00e6b8;
     }
     input, textarea {
-      margin: 10px 0;
+      width: 100%;
       padding: 10px;
-      border-radius: 5px;
+      margin: 10px 0;
       border: none;
+      border-radius: 5px;
     }
     button[type="submit"] {
       background-color: #00b894;
       color: white;
-      padding: 12px;
+      padding: 12px 25px;
+      font-size: 16px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      margin-top: 15px;
+      box-shadow: 0 0 8px #00e6b8;
     }
     button[type="submit"]:hover {
       background-color: #00e6b8;
     }
-    .pix-info {
-      background-color: #222;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    .galeria-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 30px;
-    }
-    .galeria-img {
-      width: 200px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #00e6b8;
-      pointer-events: none;
-    }
   </style>
 </head>
-<body oncontextmenu="return false">
+<body>
 
-<div class="alerta-topo">
-  WHOMARS PRÉ-VENDA ATIVA! NÃO PERCA A VIAGEM PARA MARTE!
-</div>
+  <h1>Bem-vindo à missão WHOMARS</h1>
+  <p>Explore o espaço da criatividade memeira e compartilhe sua arte.</p>
 
-<img class="banner" src="https://i.ibb.co/XkL8FnTT/file-000000008e3c62308a2df87cd87017ac-conversation-id-67fdc268.png" alt="Banner WHOMARS 1">
-<img class="banner" src="https://i.ibb.co/nqcLn2Lm/file-00000000653c61f699992c277d083e7b-conversation-id.png" alt="Banner WHOMARS 2">
-
-<div class="section">
-  <a href="https://pancakeswap.finance/swap?outputCurrency=0x0951BD6B6310175EdC9508F3A5A24Ee5" target="_blank">
-    <button class="buy-button">COMPRAR WHM AGORA</button>
+  <a href="galeria.html">
+    <button class="botao">Ver Galeria</button>
   </a>
-  <button onclick="ativarModoGalactico()" class="buy-button">ATIVAR MODO GALÁCTICO</button>
-  <p id="textoGalactico" style="margin-top:15px; color:#00e6b8; font-style: italic;"></p>
-</div>
 
-<div class="section">
-  <h2>Galeria Secreta WHOMARS</h2>
-  <div class="galeria-grid">
-    <img src="https://i.ibb.co/d4v40Qw2/file-000000006d4061f6932296188d8c804a-conversation-id.png" class="galeria-img">
-    <img src="https://i.ibb.co/5w7xsWZ/Screenshot-2025-04-18-06-20-06-752-com-android-chrome.jpg" class="galeria-img">
-    <img src="https://i.ibb.co/fdjHw1qH/file-00000000e5b46230ba7555231f4efeb6-conversation-id.png" class="galeria-img">
-    <img src="https://i.ibb.co/xqyMSPyF/file-0000000012f061f7beaca2d2ec16cd79-conversation-id.png" class="galeria-img">
-  </div>
-</div>
+  <a href="#formulario">
+    <button class="botao">Quero Expor Minha Arte</button>
+  </a>
 
-<div class="section">
-  <h2>Quero Expor Minha Arte</h2>
-  <div class="pix-info">
-    <p><strong>Taxa única:</strong> R$ 20,00</p>
-    <p><strong>Chave Pix (celular):</strong> (11) 98376-6776</p>
-    <p>Após o pagamento, preencha o formulário abaixo:</p>
-  </div>
+  <form id="formulario" action="https://formsubmit.co/paulojgoncalves2013@gmail.com" method="POST" enctype="multipart/form-data">
+    <h2 style="color:#00e6b8;">Exponha Sua Arte</h2>
+    <p>Taxa única: <strong>R$ 20,00</strong></p>
+    <p>Chave Pix: <strong>(11) 98376-6776</strong></p>
 
-  <form action="https://formsubmit.co/paulojgoncalves2013@gmail.com" method="POST" enctype="multipart/form-data">
-    <input type="text" name="nome" placeholder="Seu nome/artista" required>
+    <input type="text" name="nome" placeholder="Seu nome ou nome artístico" required>
     <input type="text" name="titulo" placeholder="Título da obra" required>
-    <textarea name="descricao" placeholder="Descrição da arte" rows="4" required></textarea>
+    <textarea name="descricao" placeholder="Breve descrição da arte" rows="4" required></textarea>
     <input type="file" name="imagem" accept="image/*" required>
-    <input type="text" name="comprovante" placeholder="Link ou ID do comprovante Pix" required>
+    <input type="text" name="comprovante" placeholder="ID ou link do comprovante Pix" required>
+
     <button type="submit">Enviar Arte</button>
-    <input type="hidden" name="_next" value="https://whomars.github.io">
+    <input type="hidden" name="_next" value="https://gpfk.github.io/obrigado.html">
   </form>
-</div>
-
-<div class="footer">
-  <div class="social-links">
-    <a href="https://facebook.com/whomars" target="_blank">Facebook</a> |
-    <a href="https://instagram.com/whomars_token" target="_blank">Instagram</a> |
-    <a href="https://kwai.com/@whomars" target="_blank">Kwai</a>
-  </div>
-  <p>© 2025 WHOMARS — Porque levar a vida a sério não leva a Júpiter.</p>
-</div>
-
-<script>
-  function ativarModoGalactico() {
-    document.body.style.background = '#05031a';
-    document.getElementById("textoGalactico").innerText =
-      'Você ativou o modo galáctico! Boa sorte tentando chegar a Júpiter com esse foguete memeiro...';
-  }
-</script>
 
 </body>
 </html>
