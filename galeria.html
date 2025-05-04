@@ -1,79 +1,88 @@
  <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Galeria WHOMARS</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #111; color: #fff; margin: 0; padding: 20px; }
-    h1 { text-align: center; margin-bottom: 20px; }
-    input { width: 100%; padding: 10px; margin-bottom: 20px; font-size: 16px; }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .item { background: #222; border-radius: 10px; overflow: hidden; box-shadow: 0 0 10px #000; }
-    .item img { width: 100%; display: block; cursor: zoom-in; }
-    .info { padding: 15px; }
-    .info h2 { font-size: 18px; margin: 0 0 10px; }
-    .info p { font-size: 14px; margin: 5px 0; color: #ccc; }
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #66ffcc;
+    }
+    input {
+      padding: 10px;
+      width: 90%;
+      max-width: 400px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: none;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .card {
+      background-color: #111;
+      border-radius: 10px;
+      padding: 10px;
+      width: 250px;
+      box-shadow: 0 0 10px #0f0;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 5px;
+    }
+    .card h3, .card p {
+      margin: 5px 0;
+    }
   </style>
 </head>
 <body>
   <h1>Galeria WHOMARS</h1>
-  <input type="text" id="search" placeholder="Buscar por nome, descrição ou autor..." />
-
-  <div class="gallery" id="gallery"></div>
+  <input type="text" id="busca" placeholder="Buscar por nome, descrição ou autor...">
+  <div class="grid" id="galeria"></div>
 
   <script>
-    const sheetURL = 'https://docs.google.com/spreadsheets/d/170SkNOp1pX22FJs7xgsNs4McSTIldLwI/gviz/tq?tqx=out:json';
+    const planilhaURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRWKRzTwG5Afh1Um2p38fSHPPvl5Zn9UP6I7sWrThyfv7NZMnEZJeBtElETtqk34M2ulI_t_9ibL8jR/pub?output=tsv";
 
-    async function fetchData() {
-      const res = await fetch(sheetURL);
-      const text = await res.text();
-      const json = JSON.parse(text.substr(47).slice(0, -2));
-      const rows = json.table.rows.map(r => r.c.map(c => c ? c.v : ''));
-      return rows.slice(1); // remove cabeçalho
-    }
+    async function carregarGaleria() {
+      const resposta = await fetch(planilhaURL);
+      const texto = await resposta.text();
+      const linhas = texto.trim().split("\n");
+      const dados = linhas.slice(1).map(linha => linha.split("\t"));
 
-    function renderGallery(data) {
-      const gallery = document.getElementById('gallery');
-      gallery.innerHTML = '';
-      data.forEach(([img, nome, descricao, autor]) => {
-        if (!img.startsWith('http')) return; // ignora linhas inválidas
-        const item = document.createElement('div');
-        item.className = 'item';
-        item.innerHTML = `
-          <img src="${img}" alt="${nome}" onclick="zoomImage(this)">
-          <div class="info">
-            <h2>${nome}</h2>
-            <p>${descricao}</p>
-            <p><strong>${autor}</strong></p>
-          </div>
+      const galeria = document.getElementById("galeria");
+      galeria.innerHTML = "";
+
+      dados.forEach(([autor, titulo, descricao, imagem]) => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `
+          <img src="${imagem}" alt="${titulo}">
+          <h3>${titulo}</h3>
+          <p><strong>${autor}</strong></p>
+          <p>${descricao}</p>
         `;
-        gallery.appendChild(item);
+        galeria.appendChild(div);
+      });
+
+      document.getElementById("busca").addEventListener("input", e => {
+        const termo = e.target.value.toLowerCase();
+        document.querySelectorAll(".card").forEach(card => {
+          card.style.display = card.innerText.toLowerCase().includes(termo) ? "block" : "none";
+        });
       });
     }
 
-    function zoomImage(img) {
-      const w = window.open('');
-      w.document.write(`<img src="${img.src}" style="width:100%">`);
-    }
-
-    function applySearch(data) {
-      const input = document.getElementById('search');
-      input.addEventListener('input', () => {
-        const term = input.value.toLowerCase();
-        const filtered = data.filter(([img, nome, desc, autor]) =>
-          nome.toLowerCase().includes(term) ||
-          desc.toLowerCase().includes(term) ||
-          autor.toLowerCase().includes(term)
-        );
-        renderGallery(filtered);
-      });
-    }
-
-    fetchData().then(data => {
-      renderGallery(data);
-      applySearch(data);
-    });
+    carregarGaleria();
   </script>
 </body>
 </html>
