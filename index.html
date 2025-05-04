@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -10,13 +10,10 @@
       color: #fff;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 40px 20px;
+      padding: 50px;
     }
     h1 {
       color: #00e6b8;
-    }
-    p {
-      margin-bottom: 30px;
     }
     .botao {
       background-color: #00b894;
@@ -26,7 +23,7 @@
       border-radius: 10px;
       border: none;
       cursor: pointer;
-      margin: 10px;
+      margin: 20px;
       box-shadow: 0 0 10px #00e6b8;
     }
     .botao:hover {
@@ -46,7 +43,6 @@
       margin: 10px 0;
       border: none;
       border-radius: 5px;
-      font-size: 14px;
     }
     button[type="submit"] {
       background-color: #00b894;
@@ -66,7 +62,7 @@
 <body>
 
   <h1>Bem-vindo à missão WHOMARS</h1>
-  <p>Explore o espaço da criatividade memeira e compartilhe sua arte na <strong>Galeria de Artes WHOMARS</strong>.</p>
+  <p>Explore o espaço da criatividade memeira e compartilhe sua arte.</p>
 
   <a href="galeria.html">
     <button class="botao">Ver Galeria</button>
@@ -78,18 +74,14 @@
 
   <form id="formulario" action="https://formsubmit.co/paulojgoncalves2013@gmail.com" method="POST" enctype="multipart/form-data">
     <h2 style="color:#00e6b8;">Exponha Sua Arte</h2>
-    <p>Taxa única: <strong>R$ 20,00</strong></p>
-    <p>Chave Pix: <strong>(11) 98376-6776</strong></p>
+    <p><strong>Teste gratuito ativo</strong> — Nenhum Pix necessário.</p>
 
     <input type="text" name="nome" placeholder="Seu nome ou nome artístico" required>
     <input type="text" name="titulo" placeholder="Título da obra" required>
     <textarea name="descricao" placeholder="Breve descrição da arte" rows="4" required></textarea>
     <input type="file" name="imagem" accept="image/*" required>
-    <input type="text" name="comprovante" placeholder="ID ou link do comprovante Pix" required>
 
     <button type="submit">Enviar Arte</button>
-
-    <!-- Campos ocultos -->
     <input type="hidden" name="_next" value="https://gpfk.github.io/obrigado.html">
     <input type="hidden" name="_captcha" value="false">
   </form>
