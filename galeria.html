@@ -1,9 +1,9 @@
  <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Galeria WHOMARS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       background-color: #000;
@@ -13,13 +13,14 @@
       text-align: center;
     }
     h1 {
-      color: #66ffcc;
+      color: #00e6b8;
+      margin-bottom: 20px;
     }
     input {
       padding: 10px;
       width: 90%;
       max-width: 400px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       border-radius: 5px;
       border: none;
     }
@@ -30,48 +31,70 @@
       gap: 20px;
     }
     .card {
-      background-color: #111;
+      background: #111;
       border-radius: 10px;
       padding: 10px;
       width: 250px;
-      box-shadow: 0 0 10px #0f0;
+      box-shadow: 0 0 10px #00e6b8;
     }
     .card img {
       width: 100%;
+      height: auto;
       border-radius: 5px;
     }
-    .card h3, .card p {
-      margin: 5px 0;
+    .card h3 {
+      margin: 10px 0 5px;
+      color: #00e6b8;
+    }
+    .card p {
+      margin: 3px 0;
+      font-size: 14px;
+    }
+    a.botao-voltar {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 25px;
+      background: #00b894;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      box-shadow: 0 0 8px #00e6b8;
+    }
+    a.botao-voltar:hover {
+      background-color: #00e6b8;
     }
   </style>
 </head>
 <body>
-  <h1>Galeria WHOMARS</h1>
-  <input type="text" id="busca" placeholder="Buscar por nome, descrição ou autor...">
+
+  <h1>Galeria de Artes WHOMARS</h1>
+  <input type="text" id="busca" placeholder="Buscar por autor, título ou descrição...">
   <div class="grid" id="galeria"></div>
 
+  <a href="index.html" class="botao-voltar">Voltar à Missão WHOMARS</a>
+
   <script>
-    const planilhaURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRWKRzTwG5Afh1Um2p38fSHPPvl5Zn9UP6I7sWrThyfv7NZMnEZJeBtElETtqk34M2ulI_t_9ibL8jR/pub?output=tsv";
+    const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRWKRzTwG5Afh1Um2p38fSHPPvl5Zn9UP6I7sWrThyfv7NZMnEZJeBtElETtqk34M2ulI_t_9ibL8jR/pub?output=tsv";
 
     async function carregarGaleria() {
-      const resposta = await fetch(planilhaURL);
+      const resposta = await fetch(url);
       const texto = await resposta.text();
       const linhas = texto.trim().split("\n");
       const dados = linhas.slice(1).map(linha => linha.split("\t"));
 
-      const galeria = document.getElementById("galeria");
-      galeria.innerHTML = "";
+      const container = document.getElementById("galeria");
+      container.innerHTML = "";
 
-      dados.forEach(([autor, titulo, descricao, imagem]) => {
+      dados.forEach(([nome, titulo, descricao, imagem]) => {
         const div = document.createElement("div");
         div.className = "card";
         div.innerHTML = `
           <img src="${imagem}" alt="${titulo}">
           <h3>${titulo}</h3>
-          <p><strong>${autor}</strong></p>
+          <p><strong>${nome}</strong></p>
           <p>${descricao}</p>
         `;
-        galeria.appendChild(div);
+        container.appendChild(div);
       });
 
       document.getElementById("busca").addEventListener("input", e => {
@@ -84,5 +107,6 @@
 
     carregarGaleria();
   </script>
+
 </body>
 </html>
