@@ -50,6 +50,9 @@
     .botao:hover {
       background-color: #00e6b8;
     }
+    .botao-merch {
+      background-color: #ff7675;
+    }
     form {
       background-color: #1a1a1a;
       padding: 20px;
@@ -119,6 +122,17 @@
     <button class="botao">Ver no OpenSea</button>
   </a>
 
+  <!-- LOJA DE PRODUTOS -->
+  <a href="https://sualoja.printful.com" target="_blank">
+    <button class="botao botao-merch">Comprar Camisetas & Pôsteres</button>
+  </a>
+
+  <!-- APOIO COM BUY ME A COFFEE -->
+  <a href="https://www.buymeacoffee.com/whomars" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px; width: 217px; margin: 20px auto;">
+  </a>
+
+  <!-- FORMULÁRIO DE ENVIO -->
   <form id="formulario" action="https://formsubmit.co/paulojgoncalves2013@gmail.com" method="POST" enctype="multipart/form-data">
     <h2 style="color:#00e6b8;">Exponha Sua Arte</h2>
     <p><strong>Para participar, faça um Pix de <span style="color:#00e6b8;">R$ 20,00</span> antes do envio.</strong></p>
@@ -146,12 +160,26 @@
 
     <img id="preview" alt="Preview da imagem">
 
-    <input type="text" name="_honey" style="display:none"> <!-- Anti-spam -->
-
-    <button type="submit">Enviar Arte</button>
+    <input type="text" name="_honey" style="display:none">
     <input type="hidden" name="_next" value="https://gpfk.github.io/obrigado.html">
     <input type="hidden" name="_captcha" value="false">
+
+    <button type="submit">Enviar Arte</button>
   </form>
+
+  <!-- ANÚNCIO COINZILLA -->
+  <div style="margin: 30px auto;">
+    <script async src="https://ads.coinzilla.com/lib/display.js"></script>
+    <div id="coinzilla"></div>
+    <script>
+      window.coinzilla_display = window.coinzilla_display || [];
+      coinzilla_display.push({
+        zone: "ID_DA_SUA_ZONA",
+        width: "728",
+        height: "90"
+      });
+    </script>
+  </div>
 
   <script>
     function previewImagem(input) {
